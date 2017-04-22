@@ -382,6 +382,464 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/04/Zepto/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lzty">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://of7y9dyoj.bkt.clouddn.com/118869CA35D08F23C978E7A0C021E8CE.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lzty 的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/04/Zepto/" itemprop="url">
+                  Zepto
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-04T06:34:22+08:00">
+                2016-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">var Zepto =(function()&#123;</div><div class="line">    var $</div><div class="line">    var zepto = &#123;&#125;</div><div class="line">    /*省略一万行*/</div><div class="line">    zepto.Z = function(dom, selector) &#123;</div><div class="line">           //将dom 隐式原型强制改为$.fn</div><div class="line">           // 这玩意就是个构造函数 ( zepto.Z.prototype = $.fn  所以 dom.__proto__ = $fn 等于</div><div class="line">zepto.Z.prototype ) </div><div class="line">          dom = dom || []</div><div class="line">          dom.__proto__ = $.fn</div><div class="line">          dom.selector = selector || &apos;&apos;</div><div class="line">          return dom  </div><div class="line">    &#125;</div><div class="line">   $ = function(selector, context)&#123;</div><div class="line">          return zepto.init(selector,context);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   /*你使用的api 全部都在fn里*/ </div><div class="line">   $.fn = &#123;</div><div class="line">         push: emptyArray.push,</div><div class="line">         indexOf: emptyArray.indexOf,</div><div class="line">         ..........</div><div class="line">   &#125;</div><div class="line"> zepto.init = function(selector, context) &#123;</div><div class="line">        var dom</div><div class="line">        /*此处省略xxx行*/</div><div class="line">        //这儿最终传入dom就是数组  最后创建对象是通过zepto.Z这个构造函数</div><div class="line">        return zepto.Z(dom, selector)</div><div class="line">  &#125;</div><div class="line"> // $被匿名函数返回 并复制给全局window.Zepto 变量</div><div class="line"> //  全局的zepto变量暴露给了window  并起到别名$</div><div class="line">   return $;</div><div class="line">&#125;)()</div><div class="line"></div><div class="line">window.Zepto = Zepto;</div><div class="line">window.$ === undefind &amp;&amp; (window.$ = Zepto)</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/03/Website-ssl-sh：低门槛跨入Https大门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lzty">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://of7y9dyoj.bkt.clouddn.com/118869CA35D08F23C978E7A0C021E8CE.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lzty 的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/03/Website-ssl-sh：低门槛跨入Https大门/" itemprop="url">
+                  Website-ssl.sh：低门槛跨入Https大门
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-03T06:27:33+08:00">
+                2016-09-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络/" itemprop="url" rel="index">
+                    <span itemprop="name">网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="转载"><a href="#转载" class="headerlink" title="转载"></a>转载</h2><h3 id="一-前言"><a href="#一-前言" class="headerlink" title="一  前言"></a>一  前言</h3><h5 id="网站https化已是大势所趋，我的个人blog也是老早之前就想搞的，总是没时间。-今天休假，在家折腾了一下，baidufe-com的图标终于变成绿色的小锁了，美美哒！"><a href="#网站https化已是大势所趋，我的个人blog也是老早之前就想搞的，总是没时间。-今天休假，在家折腾了一下，baidufe-com的图标终于变成绿色的小锁了，美美哒！" class="headerlink" title="网站https化已是大势所趋，我的个人blog也是老早之前就想搞的，总是没时间。 今天休假，在家折腾了一下，baidufe.com的图标终于变成绿色的小锁了，美美哒！"></a>网站<code>https化</code>已是大势所趋，我的个人blog也是老早之前就想搞的，总是没时间。 今天休假，在家折腾了一下，<code>baidufe.com</code>的图标终于变成<code>绿色的小锁</code>了，美美哒！</h5><h5 id="jerry-Qu大神研究的很深，我把自己的操作步骤整合了一下，做成一个小工具，也许对大家有用！-https-github-com-zxlie-website-ssl-sh"><a href="#jerry-Qu大神研究的很深，我把自己的操作步骤整合了一下，做成一个小工具，也许对大家有用！-https-github-com-zxlie-website-ssl-sh" class="headerlink" title="jerry Qu大神研究的很深，我把自己的操作步骤整合了一下，做成一个小工具，也许对大家有用！ https://github.com/zxlie/website-ssl.sh"></a><a href="https://imququ.com/post/letsencrypt-certificate.html" target="_blank" rel="external">jerry Qu</a>大神研究的很深，我把自己的操作步骤整合了一下，做成一个小工具，也许对大家有用！ <a href="https://github.com/zxlie/website-ssl.sh" target="_blank" rel="external">https://github.com/zxlie/website-ssl.sh</a></h5><h3 id="二-使用方式"><a href="#二-使用方式" class="headerlink" title="二 使用方式"></a>二 使用方式</h3><p> <strong>1、下载</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 下载工具</div><div class="line">curl -so website-ssl.sh https://raw.githubusercontent.com/zxlie/website-ssl.sh/master/website-ssl.sh</div><div class="line">chmod 0755 website-ssl.sh</div></pre></td></tr></table></figure></p>
+<p>没错，就这么下载了就能用了！当然，<code>github</code>源文件的下载，你也可以用你熟悉的任何方式！<br>注意：此工具会使用到<code>openssl</code>命令，请务必保证你的机器上已安装此工具！</p>
+<p><strong>2、 配置</strong></p>
+<p><strong> 2.1 wsl.cnf.sh的配置</strong><br>首次执行<code>website-ssl.sh</code>的时候，工具会自动在当前目录下创建配置文件：<code>wsl.cnf.sh</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh website-ssl.sh</div></pre></td></tr></table></figure>
+<p>得到结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">您的配置文件「wsl.cnf.sh」配置不正确或还未进行配置，请检查！</div></pre></td></tr></table></figure>
+<p>你可用任意编辑工具打开wsl.cnf.sh文件，针对头部的如下几个配置项进行<code>按需配置</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># ************************ 配置区域 START ******************************</div><div class="line"># 你的ssl主目录位置</div><div class="line">ssl_dir=&quot;/home/work/www/ssl&quot;</div><div class="line"># nginx中配置的，给 Let&apos;s Encrypt 验证用的</div><div class="line">challenges_dir=&quot;/home/work/www/challenges/&quot;</div><div class="line"># 按照你的需求进行配置，多个域名用空格分开</div><div class="line">websites=&quot;your-website.com www.your-website.com&quot;</div><div class="line"># ************************ 配置区域 END ********************************</div></pre></td></tr></table></figure>
+<p> <strong>2.2 nginx conf文件的配置</strong></p>
+<p>本工具是用<code>Let&#39;s Encrypt</code>来实现的<code>https</code>，所以证书的申请需要一个域名验证的过程； 也就是需要对目标站点的<code>Nginx</code>增加一个<code>location</code>，形如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># CA认证</div><div class="line">location ^~ /.well-known/acme-challenge/ &#123;</div><div class="line">    # 注：这里的$challenges_dir请替换成你自己的真实目录，如：/home/work/www/challenges/</div><div class="line">    alias $challenges_dir;</div><div class="line">    try_files $uri =404;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>3 使用</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 直接执行脚本，获取帮助信息</div><div class="line">sh website-ssl.sh</div></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">网站ssl自动化工具（v1.0）使用方法:</div><div class="line"></div><div class="line">   usage: sh website-ssl.sh -v | csr | pem | nginx | renew | crontab | upgrade</div><div class="line">   -v        查看工具的版本号</div><div class="line">   csr       根据域名配置生成csr证书文件（For pem）</div><div class="line">   pem       生成 Let&apos;s Encrypt 认可的pem证书文件</div><div class="line">   nginx     获取nginx配置文件Demo</div><div class="line">   renew     更新pem证书文件</div><div class="line">   crontab   自动更新pem证书文件的crontab任务</div><div class="line">   upgrade   升级「website-ssl.sh」工具到最新版</div></pre></td></tr></table></figure>
+<p><strong>4 实际使用案例</strong></p>
+<p><strong><em> step 1: </em></strong> <em>*</em> 创建<code>pem</code>文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh website-ssl.sh pem</div></pre></td></tr></table></figure>
+<p> <strong>注</strong> <strong><em>：这一步会自动为我们创建<code>domain</code>文件和<code>ssl-encrypt.pem</code>文件</em></strong></p>
+<p><strong><em>step2:</em></strong> <strong><em>获取<code>nginx</code>配置的Demo</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh website-ssl.sh nginx</div></pre></td></tr></table></figure>
+<p> <strong>注</strong> <strong><em>：如果知道怎么配置nginx,这一步可忽略</em></strong><br><strong><em> step3:配置自己的<code>nginx.conf</code>文件</em></strong></p>
+<p>核心就是配置一下这个：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">    listen 443 ssl;</div><div class="line">    server_name  your-website.com;</div><div class="line"></div><div class="line">    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</div><div class="line">    ssl_ciphers EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES</div><div class="line">    ssl_prefer_server_ciphers on;</div><div class="line">    ssl_certificate /home/work/www/ssl/ssl-encrypt.pem;</div><div class="line">    ssl_certificate_key /home/work/www/ssl/domain.key;</div><div class="line">    ssl_session_timeout 5m;</div><div class="line"></div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/03/gulp版本化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lzty">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://of7y9dyoj.bkt.clouddn.com/118869CA35D08F23C978E7A0C021E8CE.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lzty 的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/03/gulp版本化/" itemprop="url">
+                  gulp版本化
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-03T03:58:59+08:00">
+                2016-09-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="乐村淘新架构-leliuji目录下基于gulp前端版本化"><a href="#乐村淘新架构-leliuji目录下基于gulp前端版本化" class="headerlink" title="乐村淘新架构 /leliuji目录下基于gulp前端版本化"></a>乐村淘新架构 /leliuji目录下基于gulp前端版本化</h2><p><strong>1. 安装gulp和组件</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev gulp</div><div class="line">npm install --save-dev gulp-rev</div><div class="line">npm install --save-dev gulp-rev-collector</div><div class="line">npm install --save-dev run-sequence</div><div class="line">npm install --save-dev gulp-watch</div><div class="line">npm install --save-dev minimist</div></pre></td></tr></table></figure></p>
+<p><strong>1.1 如没有安装node，请先安装nodejs  <a href="https://nodejs.org/en/download/" target="_blank" rel="external">https://nodejs.org/en/download/</a></strong></p>
+<p><strong>1.2 版本化需要更改部分依赖库代码  更改地方如下</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">打开node_modules\gulp-rev\index.js</div><div class="line">第144行 manifest[originalFile] = revisionedFile;</div><div class="line">更新为：manifest[originalFile] = originalFile + ‘?v=’ + file.revHash;</div><div class="line"></div><div class="line">打开nodemodules\gulp-rev\nodemodules\rev-path\index.js</div><div class="line">10行 return filename + ‘-‘ + hash + ext;</div><div class="line">更新为: return filename + ext;</div><div class="line"></div><div class="line">打开node_modules\gulp-rev-collector\index.js 31行</div><div class="line">if ( !_.isString(json[key]) || path.basename(json[key]).replace(new RegExp( opts.revSuffix ), ” ) !== path.basename(key) ) &#123;</div><div class="line">更新为: if ( !_.isString(json[key]) || path.basename(json[key]).split(‘?’)[0] !== path.basename(key) ) &#123;</div><div class="line"></div><div class="line">打开node_modules\gulp-rev-collector\index.js 第107行 regexp: new RegExp( ‘([\/\\\\\&apos;”])’ + pattern, ‘g’ ),</div><div class="line"> 更新为: regexp: new RegExp( ‘([\/\\\\\&apos;”])’ + pattern+&apos;(\\?v=\\w&#123;10&#125;)?’, ‘g’ ),</div></pre></td></tr></table></figure>
+<p><strong>2.以leliuji为根目录 新建gulpfile.js 代码如下</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div></pre></td><td class="code"><pre><div class="line">//引入gulp组件</div><div class="line">var gulp = require(&apos;../../node_modules/gulp&apos;),</div><div class="line">    runSequence = require(&apos;../../node_modules/run-sequence&apos;),</div><div class="line">    rev = require(&apos;../../node_modules/gulp-rev&apos;),</div><div class="line">    revCollector = require(&apos;../../node_modules/gulp-rev-collector&apos;),</div><div class="line">    watch = require(&apos;../../node_modules/gulp-watch&apos;),</div><div class="line">    minimist = require(&apos;../../node_modules/minimist&apos;);</div><div class="line"></div><div class="line">//定义css js img路径</div><div class="line">var cssSrc = &apos;shop/templates/default/css/*.css&apos;,</div><div class="line">    jsSrc = &apos;shop/resource/js/*.js&apos;,</div><div class="line">    imgSrc = &apos;shop/templates/default/images/**/&apos;,</div><div class="line">    cssDest = &apos;shop/templates/default/css&apos;,</div><div class="line">    jsDest = &apos;shop/resource/js&apos;,</div><div class="line">    imgDest = &apos;shop/templates/default/images&apos;;</div><div class="line"></div><div class="line">//定义目录</div><div class="line">var publicDest  = &apos;&apos;;</div><div class="line">//定义目标文件</div><div class="line">var knownOptions = &apos;&apos;;</div><div class="line"></div><div class="line">var options = minimist(process.argv.slice(2));</div><div class="line">    i = 0;</div><div class="line">    for (var key in options) &#123;</div><div class="line">        if (key === &apos;paths&apos;) &#123;</div><div class="line">            publicDest = options[key];</div><div class="line">        &#125;</div><div class="line">        if (i&gt;1) &#123;</div><div class="line">            knownOptions += &apos;&apos;+options[key]+&apos;,&apos;;</div><div class="line">        &#125;</div><div class="line">        i++;</div><div class="line">    &#125;</div><div class="line">    knownOptions = knownOptions.substring(0,knownOptions.length-1);</div><div class="line"></div><div class="line">//css 生成文件hash编码并生成rev-manifest.json文件名对照映射</div><div class="line">gulp.task(&apos;revCss&apos;,function()&#123;</div><div class="line">    return gulp.src(cssSrc)</div><div class="line">        .pipe(rev())</div><div class="line">        .pipe(rev.manifest())</div><div class="line">        .pipe(gulp.dest(cssDest));</div><div class="line">&#125;);</div><div class="line">//js 生成文件hash编码并生成rev-mainfest.json文件名对照映射</div><div class="line">gulp.task(&apos;revJs&apos;,function()&#123;</div><div class="line">    return gulp.src(jsSrc)</div><div class="line">        .pipe(rev())</div><div class="line">        .pipe(rev.manifest())</div><div class="line">        .pipe(gulp.dest(jsDest));</div><div class="line">&#125;);</div><div class="line">//Images 生成文件hash编码并生成rev-manifest.json文件名对照映射</div><div class="line">gulp.task(&apos;revImg&apos;,function()&#123;</div><div class="line">    return gulp.src(imgSrc)</div><div class="line">        .pipe(rev())</div><div class="line">        .pipe(rev.manifest())</div><div class="line">        .pipe(gulp.dest(imgDest));</div><div class="line">&#125;);</div><div class="line"></div><div class="line">gulp.task(&apos;revdevcss&apos;, function () &#123;</div><div class="line">    return gulp.src([cssDest+&apos;/*.json&apos;, knownOptions],&#123; buffer :&apos;false&apos; &#125;)</div><div class="line">        .pipe(revCollector())</div><div class="line">        .pipe(gulp.dest(publicDest));</div><div class="line">&#125;);</div><div class="line">gulp.task(&apos;revdevjs&apos;, function () &#123;</div><div class="line">    return gulp.src([jsDest+&apos;/*.json&apos;, knownOptions],&#123; buffer :&apos;false&apos; &#125;)</div><div class="line">        .pipe(revCollector())</div><div class="line">        .pipe(gulp.dest(publicDest));</div><div class="line">&#125;);</div><div class="line">gulp.task(&apos;revdevimg&apos;, function () &#123;</div><div class="line">   return gulp.src([imgDest+&apos;/*.json&apos;,knownOptions],&#123; buffer :&apos;false&apos; &#125;)</div><div class="line">       .pipe(revCollector())</div><div class="line">       .pipe(gulp.dest(publicDest));</div><div class="line">&#125;);</div><div class="line">//构建应用</div><div class="line">gulp.task(&apos;dev&apos;,function(done) &#123;</div><div class="line">    condition = false;</div><div class="line">    runSequence(</div><div class="line">        [&apos;revCss&apos;],</div><div class="line">        [&apos;revJs&apos;],</div><div class="line">        [&apos;revImg&apos;],</div><div class="line">        [&apos;revdevcss&apos;],</div><div class="line">        [&apos;revdevjs&apos;],</div><div class="line">        [&apos;revdevimg&apos;],</div><div class="line">    done);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">gulp.task(&apos;Css&apos;,function(done)&#123;</div><div class="line">    condition = false;</div><div class="line">    runSequence(</div><div class="line">        [&apos;revCss&apos;],</div><div class="line">        [&apos;revdevcss&apos;],</div><div class="line">        done);</div><div class="line">    gulp.watch(cssSrc,[&apos;Css&apos;]);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">gulp.task(&apos;Js&apos;,function(done)&#123;</div><div class="line">    condition = false;</div><div class="line">    runSequence(</div><div class="line">        [&apos;revJs&apos;],</div><div class="line">        [&apos;revdevjs&apos;],</div><div class="line">        done);</div><div class="line">    gulp.watch(jsSrc,[&apos;Js&apos;]);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">gulp.task(&apos;Img&apos;,function(done)&#123;</div><div class="line">    condition = false;</div><div class="line">    runSequence(</div><div class="line">        [&apos;revImg&apos;],</div><div class="line">        [&apos;revdevimg&apos;],</div><div class="line">        done);</div><div class="line">    gulp.watch(imgSrc,[&apos;Img&apos;]);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><strong>2.1 因项目模版文件过多 监控速度较慢  改为命令行传递文件参数 进行版本化</strong></p>
+<p><strong>3. 以leliuji目录下 css添加版本化为例 操作步骤如下</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">命令行进入leliuji根目录</div><div class="line">工具书写方法： 运行 gulp 方法名  --paths为 dest输出目录  后面可添加多个监控文件</div><div class="line">例: gulp Css --paths &quot;shop/templates/default/layout&quot;  --x &quot;shop/templates/default/layout/buy_layout.php&quot; --r &quot;shop/templates/default/store/article.php&quot;</div></pre></td></tr></table></figure></p>
+<p><strong>3.1 命令行注意使用规范双引号 </strong></p>
+<p><strong>3.2 后期如需进行前端编译打包 可引入webpack   参考：<a href="http://www.w2bc.com/Article/50764" target="_blank" rel="external">http://www.w2bc.com/Article/50764</a></strong></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -427,14 +885,32 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
